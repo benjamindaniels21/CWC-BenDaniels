@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 function App() {
   const [message, setMessage] = useState('');
-  
+  const [text, setText] = useState('')
+
   useEffect(() => {
     axios.get('http://localhost:3000')
       .then(response => {
@@ -15,9 +16,12 @@ function App() {
   }, []);
   
   return (
-    <div>
-      <h1>{message}</h1>
-      <h2>hey</h2>
+    <div className='App'>
+      <div className="container">
+        <div className="top">
+        <input type="text" placeholder='Add task' value={text} onChange={(e) => setText(e.target.value)}/>
+        </div>
+      </div>
     </div>
   );
 }
