@@ -1,7 +1,10 @@
+import "./Header.css"
 
 const Header = () => {
   return (
-    <div>Header</div>
+    <div className="header">
+      <h1>Task Manager</h1>
+    </div>
   )
 }
 
