@@ -1,13 +1,16 @@
 import { Box, Button, ChakraProvider } from "@chakra-ui/react";
-
+import axios from "axios";
 
 function App() {
-  
+  const handleClick = async () => {
+    const response = await axios.get('http://localhost:3003');
+    console.log("response", response)
+  }
   
   return (
     <ChakraProvider>
       <Box>Hi from App</Box>
-      <Button colorScheme="purple">Button</Button>
+      <Button colorScheme="purple" onClick={handleClick}>Button</Button>
     </ChakraProvider>
   )
 }
