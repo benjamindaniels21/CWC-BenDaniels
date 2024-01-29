@@ -3,8 +3,8 @@ import axios from "axios";
 
 function App() {
   const handleClick = async () => {
-    const response = await axios.get('http://localhost:3003');
-    console.log("response", response)
+    const response = await axios.post('http://localhost:3003/name', {name: "Ben"});
+    console.log("RESPONSE:", response.data)
   }
   
   return (
