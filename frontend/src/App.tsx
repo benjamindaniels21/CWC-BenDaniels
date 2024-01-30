@@ -9,7 +9,7 @@ function App() {
   
   return (
     <ChakraProvider>
-      <Box>Hi from App</Box>
+      <Box>Hi from App!!</Box>
       <Button colorScheme="purple" onClick={handleClick}>Button</Button>
     </ChakraProvider>
   )
