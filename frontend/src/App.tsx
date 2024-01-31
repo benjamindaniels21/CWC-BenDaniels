@@ -1,9 +1,13 @@
 import { Box, Button, ChakraProvider } from "@chakra-ui/react";
 import axios from "axios";
+import { useState } from "react";
 
 function App() {
+  const [name, setName] = useState('Test name Ben 1');
+
+
   const handleClick = async () => {
-    const response = await axios.post('http://localhost:3003/name', {name: "Ben"});
+    const response = await axios.post('http://localhost:3003/name', { name });
     console.log("RESPONSE:", response.data)
   }
   
