@@ -1,10 +1,12 @@
-import { Box, Button, ChakraProvider } from "@chakra-ui/react";
+import { Box, Button, Input, ChakraProvider } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
 
 function App() {
   const [name, setName] = useState('Test name Ben 1');
-
+  const onChange = (e: any) => {
+    setName(e.target.value)
+  }
 
   const handleClick = async () => {
     const response = await axios.post('http://localhost:3003/name', { name });
@@ -13,8 +15,10 @@ function App() {
   
   return (
     <ChakraProvider>
-      <Box>Hi from App!!</Box>
-      <Button colorScheme="purple" onClick={handleClick}>Button</Button>
+      <Box m={10} display="flex" gap={4}>
+      <Input placeholder="type in a name" onChange={onChange}/>
+      <Button colorScheme="purple" onClick={handleClick}>Add Name</Button>
+      </Box>
     </ChakraProvider>
   )
 }
