@@ -12,11 +12,12 @@ export class AppService {
 
   async addName(name: string) {
     //take the name and save it into name table of the db
-    const nameData = await this.namesRepository.save({ name });
-    return nameData;
+    await this.namesRepository.save({ name });
+    return this.getNames();
   }
 
   async getNames() {
-    return {};
+    //get all the names from db
+    return await this.namesRepository.find();
   }
 }
