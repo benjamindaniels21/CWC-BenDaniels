@@ -3,21 +3,27 @@ import axios from "axios";
 import { useState } from "react";
 
 function App() {
-  const [name, setName] = useState('Test name Ben 1');
-  const onChange = (e: any) => {
-    setName(e.target.value)
+  const [firstName, setFirstName] = useState('Ben');
+  const [lastName, setLastName] = useState('Daniels');
+  
+  const onChangeFirstName = (e: any) => {
+    setFirstName(e.target.value)
+  }
+  const onChangeLastName = (e: any) => {
+    setLastName(e.target.value)
   }
 
   const handleClick = async () => {
-    const response = await axios.post('http://localhost:3003/name', { name });
+    const response = await axios.post('http://localhost:3003/name', { firstName, lastName });
     console.log("RESPONSE:", response.data)
   }
   
   return (
     <ChakraProvider>
       <Box m={10} display="flex" gap={4}>
-      <Input placeholder="type in a name" onChange={onChange}/>
-      <Button colorScheme="purple" onClick={handleClick}>Add Name</Button>
+      <Input placeholder="type in a first name" onChange={onChangeFirstName}/>
+      <Input placeholder="type in a last name" onChange={onChangeLastName}/>
+      <Button colorScheme="purple" onClick={handleClick}>Add</Button>
       </Box>
     </ChakraProvider>
   )
