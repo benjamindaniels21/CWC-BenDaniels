@@ -10,11 +10,11 @@ export class AppService {
     private namesRepository: Repository<Name>,
   ) {}
 
-  async addName(name: string) {
-    //take the name and save it into name table of the db
-    await this.namesRepository.save({ name });
-    return this.getNames();
-  }
+  // async addName(name: string) {
+  //   //take the name and save it into name table of the db
+  //   await this.namesRepository.save({ name });
+  //   return this.getNames();
+  // }
 
   async getNames() {
     //get all the names from db
