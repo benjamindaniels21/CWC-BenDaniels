@@ -9,6 +9,7 @@ import { Name } from './name.entity';
 import typeorm from './config/typeorm';
 // import { AuthModule } from './auth/auth.module';
 import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { AuthModule } from './auth/auth.module';
     }),
     TypeOrmModule.forFeature([Name]),
     AuthModule,
+    UsersModule,
     // UserModule,
     // AuthModule,
   ],
