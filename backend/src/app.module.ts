@@ -8,6 +8,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Name } from './name.entity';
 import typeorm from './config/typeorm';
 // import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import typeorm from './config/typeorm';
         configService.get('typeorm'),
     }),
     TypeOrmModule.forFeature([Name]),
+    AuthModule,
     // UserModule,
     // AuthModule,
   ],
