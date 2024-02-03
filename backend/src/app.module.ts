@@ -2,12 +2,9 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-// import { UserModule } from './user/user.module';
-// import { User } from './user/entities/user.entity';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Name } from './name.entity';
 import typeorm from './config/typeorm';
-// import { AuthModule } from './auth/auth.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 
@@ -25,8 +22,6 @@ import { UsersModule } from './users/users.module';
     TypeOrmModule.forFeature([Name]),
     AuthModule,
     UsersModule,
-    // UserModule,
-    // AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
