@@ -7,6 +7,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import typeorm from './config/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { User } from './users/user.entity';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { UsersModule } from './users/users.module';
       useFactory: async (configService: ConfigService) =>
         configService.get('typeorm'),
     }),
-    // TypeOrmModule.forFeature([Name]),
+    TypeOrmModule.forFeature([User]),
     AuthModule,
     UsersModule,
   ],

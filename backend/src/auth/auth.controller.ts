@@ -9,7 +9,7 @@ type LogInDto = {
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post('/name')
+  @Post('/log-in')
   async logIn(@Body() logInDto: LogInDto) {
     console.log(logInDto.username, logInDto.password);
     return await this.authService.logIn(logInDto.username, logInDto.password);
