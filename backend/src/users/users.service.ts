@@ -13,4 +13,8 @@ export class UsersService {
   async findUserByUsername(username: string) {
     return await this.usersRepository.findOne({ where: { username } });
   }
+
+  async addUser(name, email, username, password) {
+    await this.usersRepository.save({ name, email, username, password });
+  }
 }
