@@ -5,7 +5,12 @@ import { UsersService } from '../users/users.service';
 export class AuthService {
   constructor(private usersService: UsersService) {}
   async logIn(username, password) {
-    const user = this.usersService.findUserByUsername(username);
-    console.log('USER:', user);
+    const user = await this.usersService.findUserByUsername(username);
+    console.log(user.password);
+    if (user?.password !== password) {
+      console.log('USER:', user);
+    } else {
+      console.log('NO USER');
+    }
   }
 }
